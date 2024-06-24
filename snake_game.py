@@ -31,9 +31,6 @@ def main(stdscr):
         x, y = move_snake(key, x, y)
         stdscr.refresh()
 
-        x += 1
-        if x == max_x - 1:
-            x = 0
 
 
 curses.wrapper(main)
