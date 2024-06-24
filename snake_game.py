@@ -17,7 +17,8 @@ def move_snake(unicode_key, x, y):
 
 def main(stdscr):
     max_y, max_x = stdscr.getmaxyx()
-    x = 0
+    x = max_x // 2
+    y = max_y // 2
 
     while True:
         key = stdscr.getch()
@@ -25,7 +26,7 @@ def main(stdscr):
             break
 
         stdscr.clear()
-        stdscr.addstr(max_y // 2, x, "s")
+        stdscr.addstr(y, x, "s")
         x, y = move_snake(key, x, y)
         stdscr.refresh()
 
