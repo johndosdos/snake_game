@@ -3,7 +3,6 @@ import time
 
 
 def main(stdscr):
-    stdscr.nodelay(True)
     max_y, max_x = stdscr.getmaxyx()
     x = 0
 
@@ -19,8 +18,6 @@ def main(stdscr):
         x += 1
         if x == max_x - 1:
             x = 0
-
-        time.sleep(0.1)
 
 
 curses.wrapper(main)
