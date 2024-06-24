@@ -14,12 +14,12 @@ def main(stdscr):
 
         stdscr.clear()
         stdscr.addstr(max_y // 2, x, "s")
+        stdscr.refresh()
 
         x += 1
         if x == max_x - 1:
             x = 0
 
-        stdscr.refresh()
         time.sleep(0.1)
 
 
