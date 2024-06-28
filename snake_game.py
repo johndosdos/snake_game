@@ -37,8 +37,9 @@ def main(stdscr):
         x, y = move_snake(key, x, y)
         stdscr.refresh()
 
-        time.sleep(0.001)
         prev_key = key
+
+        time.sleep(0.09)
 
 
 curses.wrapper(main)
