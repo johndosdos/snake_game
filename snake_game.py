@@ -21,10 +21,16 @@ def main(stdscr):
     x = max_x // 2
     y = max_y // 2
 
+    prev_key = None
+
     while True:
         key = stdscr.getch()
+
         if key != -1 and chr(key) == "q":
             break
+
+        if prev_key and key == -1:
+            key = prev_key
 
         stdscr.clear()
         stdscr.addstr(y, x, "s")
@@ -32,6 +38,7 @@ def main(stdscr):
         stdscr.refresh()
 
         time.sleep(0.001)
+        prev_key = key
 
 
 curses.wrapper(main)
