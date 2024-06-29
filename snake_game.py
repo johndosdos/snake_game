@@ -16,6 +16,7 @@ def move_snake(unicode_key, x, y, max_x, max_y):
 
 
 def main(stdscr):
+    curses.curs_set(0)
     stdscr.nodelay(True)
     max_y, max_x = stdscr.getmaxyx()
     x = max_x // 2
@@ -39,7 +40,7 @@ def main(stdscr):
 
         prev_key = key
 
-        time.sleep(0.09)
+        time.sleep(0.03333333333)
 
 
 curses.wrapper(main)
