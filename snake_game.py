@@ -2,7 +2,7 @@ import curses
 import time
 
 
-def move_snake(unicode_key, x, y, max_x, max_y):
+def change_direction(unicode_key, x, y, max_x, max_y):
     if unicode_key == curses.KEY_UP and y > 0:
         y -= 1
     if unicode_key == curses.KEY_RIGHT and x < max_x - 2:
@@ -35,7 +35,7 @@ def main(stdscr):
 
         stdscr.clear()
         stdscr.addstr(y, x, "s")
-        x, y = move_snake(key, x, y, max_x, max_y)
+        x, y = change_direction(key, x, y, max_x, max_y)
         stdscr.refresh()
 
         prev_key = key
