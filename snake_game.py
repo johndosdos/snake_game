@@ -1,5 +1,15 @@
 import curses
 import time
+import random
+
+
+def random_food_placement(max_x, max_y):
+    rnd_x = random.randint(0, max_x)
+    rnd_y = random.randint(0, max_y)
+
+    return rnd_x, rnd_y
+
+
 
 
 def change_direction(unicode_key, x, y, max_x, max_y):
@@ -23,6 +33,8 @@ def main(stdscr):
     y = max_y // 2
 
     prev_key = None
+
+    food_x, food_y = random_food_placement(max_x, max_y)
 
     while True:
         key = stdscr.getch()
