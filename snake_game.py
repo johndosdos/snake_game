@@ -15,12 +15,12 @@ def random_food_placement(max_x, max_y):
 def change_direction(unicode_key, x, y, max_x, max_y):
     if unicode_key == curses.KEY_UP and y > 0:
         y -= 1
-    if unicode_key == curses.KEY_RIGHT and x < max_x - 2:
-        x += 2
+    if unicode_key == curses.KEY_RIGHT and x < max_x - 1:
+        x += 1
     if unicode_key == curses.KEY_DOWN and y < max_y - 1:
         y += 1
     if unicode_key == curses.KEY_LEFT and x > 0:
-        x -= 2
+        x -= 1
 
     return x, y
 
