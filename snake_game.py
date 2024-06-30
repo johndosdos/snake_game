@@ -35,6 +35,7 @@ def main(stdscr):
     prev_key = None
 
     food_x, food_y = random_food_placement(max_x, max_y)
+    food_is_eaten = False
 
     while True:
         key = stdscr.getch()
@@ -46,6 +47,14 @@ def main(stdscr):
             key = prev_key
 
         stdscr.clear()
+
+        if food_is_eaten:
+            (
+                food_x,
+                food_y,
+            ) = random_food_placement(max_x, max_y)
+        stdscr.addstr(food_y, food_x, "*")
+
         stdscr.addstr(y, x, "s")
         x, y = change_direction(key, x, y, max_x, max_y)
         stdscr.refresh()
