@@ -56,12 +56,13 @@ def main(stdscr):
         stdscr.addstr(food_y, food_x, "*")
 
         stdscr.addstr(y, x, "s")
-        x, y = change_direction(key, x, y, max_x, max_y)
         stdscr.refresh()
 
         prev_key = key
 
-        time.sleep(0.03333333333)
+        time.sleep((1 / 6))
+
+        x, y = change_direction(key, x, y, max_x, max_y)
 
 
 curses.wrapper(main)
