@@ -4,7 +4,7 @@ import random
 
 
 def random_food_placement(max_x, max_y):
-    rnd_x = random.randint(0, max_x)
+    rnd_x = random.randint(0, max_x) // 2 * 2
     rnd_y = random.randint(0, max_y)
 
     return rnd_x, rnd_y
@@ -29,7 +29,7 @@ def main(stdscr):
     curses.curs_set(0)
     stdscr.nodelay(True)
     max_y, max_x = stdscr.getmaxyx()
-    x = max_x // 2
+    x = (max_x // 2) // 2 * 2
     y = max_y // 2
 
     prev_key = None
