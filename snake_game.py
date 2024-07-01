@@ -10,6 +10,14 @@ def random_food_placement(max_x, max_y):
     return rnd_x, rnd_y
 
 
+def update_snake_body(x, y, snake_body, prev_segment):
+    snake_body[0] = (x, y)
+    for i in range(1, len(snake_body)):
+        curr_segment = snake_body[i]
+        snake_body[i] = prev_segment
+        prev_segment = curr_segment
+
+    return snake_body
 
 
 def change_direction(unicode_key, x, y, max_x, max_y):
@@ -65,7 +73,9 @@ def main(stdscr):
 
         time.sleep((1 / 6))
 
+        prev_segment = (x, y)
         x, y = change_direction(key, x, y, max_x, max_y)
+        snake_body = update_snake_body(x, y, snake_body, prev_segment)
 
 
 curses.wrapper(main)
