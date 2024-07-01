@@ -23,9 +23,9 @@ def update_snake_body(x, y, snake_body, prev_segment):
 def change_direction(unicode_key, x, y, max_x, max_y):
     if unicode_key == curses.KEY_UP and y > 0:
         y -= 1
-    elif unicode_key == curses.KEY_RIGHT and x < max_x:
+    elif unicode_key == curses.KEY_RIGHT and x < max_x - 2:
         x += 2
-    elif unicode_key == curses.KEY_DOWN and y < max_y:
+    elif unicode_key == curses.KEY_DOWN and y < max_y - 1:
         y += 1
     elif unicode_key == curses.KEY_LEFT and x > 1:
         x -= 2
