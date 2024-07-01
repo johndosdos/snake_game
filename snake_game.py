@@ -32,6 +32,9 @@ def main(stdscr):
     x = (max_x // 2) // 2 * 2
     y = max_y // 2
 
+    snake_body = [(x, y)]
+    prev_segment = None
+
     prev_key = None
 
     food_x, food_y = random_food_placement(max_x, max_y)
