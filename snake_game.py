@@ -65,7 +65,9 @@ def main(stdscr):
 
         stdscr.addstr(food_y, food_x, "*")
 
-        stdscr.addstr(y, x, "s")
+        for coor_x, coor_y in snake_body:
+            stdscr.addstr(coor_y, coor_x, "s")
+
         stdscr.refresh()
 
         prev_key = key
