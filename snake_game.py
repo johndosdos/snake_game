@@ -70,7 +70,6 @@ def main(stdscr):
         else:
             snake_body = update_snake_body(x, y, snake_body)
 
-        snake_body = update_snake_body(x, y, snake_body, prev_segment)
         prev_key = key
         time.sleep(frame_rate)
 
