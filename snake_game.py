@@ -40,10 +40,7 @@ def main(stdscr):
     y = max_y // 2
     frame_rate = 1 / 6
     snake_body = [(x, y)]
-    prev_segment = None
-
     prev_key = None
-
     food_x, food_y = random_food_placement(max_x, max_y)
 
     while True:
@@ -72,7 +69,6 @@ def main(stdscr):
         prev_key = key
 
 
-        prev_segment = (x, y)
         x, y = change_direction(key, x, y, max_x, max_y)
         snake_body = update_snake_body(x, y, snake_body, prev_segment)
         time.sleep(frame_rate)
