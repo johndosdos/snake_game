@@ -36,7 +36,7 @@ def main(stdscr):
     curses.curs_set(0)
     stdscr.nodelay(True)
     max_y, max_x = stdscr.getmaxyx()
-    x = (max_x // 2) // 2 * 2
+    x = ((max_x // 2) // 2) * 2
     y = max_y // 2
 
     snake_body = [(x, y)]
