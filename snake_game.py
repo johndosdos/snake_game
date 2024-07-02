@@ -61,7 +61,7 @@ def main(stdscr):
 
         stdscr.refresh()
 
-        prev_key = key
+        x, y = change_direction(key, x, y, max_x, max_y)
 
         if x == food_x and y == food_y:
             snake_body = update_snake_body(x, y, snake_body, True)
@@ -70,8 +70,8 @@ def main(stdscr):
         else:
             snake_body = update_snake_body(x, y, snake_body)
 
-        x, y = change_direction(key, x, y, max_x, max_y)
         snake_body = update_snake_body(x, y, snake_body, prev_segment)
+        prev_key = key
         time.sleep(frame_rate)
 
 
