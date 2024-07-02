@@ -38,7 +38,7 @@ def main(stdscr):
     max_y, max_x = stdscr.getmaxyx()
     x = ((max_x // 2) // 2) * 2
     y = max_y // 2
-
+    frame_rate = 1 / 6
     snake_body = [(x, y)]
     prev_segment = None
 
@@ -71,11 +71,11 @@ def main(stdscr):
 
         prev_key = key
 
-        time.sleep((1 / 6))
 
         prev_segment = (x, y)
         x, y = change_direction(key, x, y, max_x, max_y)
         snake_body = update_snake_body(x, y, snake_body, prev_segment)
+        time.sleep(frame_rate)
 
 
 curses.wrapper(main)
