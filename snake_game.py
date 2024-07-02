@@ -10,14 +10,13 @@ def random_food_placement(max_x, max_y):
     return rnd_x, rnd_y
 
 
-def update_snake_body(x, y, snake_body, prev_segment):
-    snake_body[0] = (x, y)
-    for i in range(1, len(snake_body)):
-        curr_segment = snake_body[i]
-        snake_body[i] = prev_segment
-        prev_segment = curr_segment
+def update_snake_body(x, y, snake_body, is_food_eaten=False):
+    new_snake_body = [(x, y)]
+    new_snake_body.extend(snake_body)
+    if not is_food_eaten:
+        new_snake_body.pop()
 
-    return snake_body
+    return new_snake_body
 
 
 def change_direction(unicode_key, x, y, max_x, max_y):
