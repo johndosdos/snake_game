@@ -52,11 +52,6 @@ def main(stdscr):
         if prev_key and key == -1:
             key = prev_key
 
-        if x == food_x and y == food_y:
-            if prev_segment:
-                snake_body.append(prev_segment)
-                food_x, food_y = random_food_placement(max_x, max_y)
-
         stdscr.clear()
 
         stdscr.addstr(food_y, food_x, "*")
@@ -68,6 +63,12 @@ def main(stdscr):
 
         prev_key = key
 
+        if x == food_x and y == food_y:
+            snake_body = update_snake_body(x, y, snake_body, True)
+            food_x, food_y = random_food_placement(max_x, max_y)
+            frame_rate -= frame_rate * 0.01
+        else:
+            snake_body = update_snake_body(x, y, snake_body)
 
         x, y = change_direction(key, x, y, max_x, max_y)
         snake_body = update_snake_body(x, y, snake_body, prev_segment)
