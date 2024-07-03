@@ -39,13 +39,16 @@ def detect_body_collision(old_snake_body, new_snake_body):
 def main(stdscr):
     curses.curs_set(0)
     stdscr.nodelay(True)
+    prev_key = None
+
     max_y, max_x = stdscr.getmaxyx()
     snake_x = ((max_x // 2) // 2) * 2
     snake_y = max_y // 2
-    frame_rate = 1 / 6
+
     snake_body = [(snake_x, snake_y)]
-    prev_key = None
     food_x, food_y = random_food_placement(max_x, max_y)
+
+    frame_rate = 1 / 6
 
     while True:
         key = stdscr.getch()
