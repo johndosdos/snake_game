@@ -32,6 +32,10 @@ def change_direction(unicode_key, x, y, max_x, max_y):
     return x, y
 
 
+def detect_body_collision(old_snake_body, new_snake_body):
+    return len(set(old_snake_body)) != len(set(new_snake_body))
+
+
 def main(stdscr):
     curses.curs_set(0)
     stdscr.nodelay(True)
@@ -68,7 +72,12 @@ def main(stdscr):
             food_x, food_y = random_food_placement(max_x, max_y)
             frame_rate -= frame_rate * 0.01
         else:
+            old_snake_body = snake_body
             snake_body = update_snake_body(snake_x, snake_y, snake_body)
+            new_snake_body = snake_body
+
+            if detect_body_collision(old_snake_body, new_snake_body):
+                break
 
         prev_key = key
         time.sleep(frame_rate)
