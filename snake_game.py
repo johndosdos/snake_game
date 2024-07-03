@@ -36,10 +36,10 @@ def main(stdscr):
     curses.curs_set(0)
     stdscr.nodelay(True)
     max_y, max_x = stdscr.getmaxyx()
-    x = ((max_x // 2) // 2) * 2
-    y = max_y // 2
+    snake_x = ((max_x // 2) // 2) * 2
+    snake_y = max_y // 2
     frame_rate = 1 / 6
-    snake_body = [(x, y)]
+    snake_body = [(snake_x, snake_y)]
     prev_key = None
     food_x, food_y = random_food_placement(max_x, max_y)
 
@@ -61,14 +61,14 @@ def main(stdscr):
 
         stdscr.refresh()
 
-        x, y = change_direction(key, x, y, max_x, max_y)
+        snake_x, snake_y = change_direction(key, snake_x, snake_y, max_x, max_y)
 
-        if x == food_x and y == food_y:
-            snake_body = update_snake_body(x, y, snake_body, True)
+        if snake_x == food_x and snake_y == food_y:
+            snake_body = update_snake_body(snake_x, snake_y, snake_body, True)
             food_x, food_y = random_food_placement(max_x, max_y)
             frame_rate -= frame_rate * 0.01
         else:
-            snake_body = update_snake_body(x, y, snake_body)
+            snake_body = update_snake_body(snake_x, snake_y, snake_body)
 
         prev_key = key
         time.sleep(frame_rate)
