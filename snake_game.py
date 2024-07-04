@@ -36,6 +36,15 @@ def detect_body_collision(old_snake_body, new_snake_body):
     return len(set(old_snake_body)) != len(set(new_snake_body))
 
 
+def game_over_screen(stdscr, max_x, max_y):
+    game_over_message = "GAME OVER"
+    stdscr.addstr(
+        max_y // 2, (max_x // 2) - len(game_over_message) // 2, game_over_message
+    )
+    stdscr.refresh()
+    time.sleep(2)
+
+
 def main(stdscr):
     curses.curs_set(0)
     stdscr.nodelay(True)
@@ -84,6 +93,8 @@ def main(stdscr):
 
         prev_key = key
         time.sleep(frame_rate)
+
+    game_over_screen(stdscr, max_x, max_y)
 
 
 curses.wrapper(main)
