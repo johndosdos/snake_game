@@ -28,6 +28,8 @@ def change_direction(unicode_key, x, y, max_x, max_y):
     elif unicode_key == curses.KEY_LEFT and x > 1:
         x -= 2
 
+    # We increment the x value by two to compensate for the char 's' dimensions.
+
     return x, y
 
 
@@ -50,6 +52,9 @@ def main(stdscr):
     prev_key = None
 
     max_y, max_x = stdscr.getmaxyx()
+
+    # The snake's x value is always an even integer. The snake skips one position
+    # when it moves horizontally since the char 's' is taller than it is wider.
     snake_x = ((max_x // 2) // 2) * 2
     snake_y = max_y // 2
 
