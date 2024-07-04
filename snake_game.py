@@ -69,6 +69,7 @@ def main(stdscr):
 
     while True:
         key = stdscr.getch()
+        curses.flushinp()
 
         if key != -1 and chr(key) == "q":
             break
@@ -108,6 +109,7 @@ def main(stdscr):
 
     while True:
         key = stdscr.getch()
+        curses.flushinp()
 
         if chr(key) == "q":
             break
