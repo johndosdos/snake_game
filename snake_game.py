@@ -39,11 +39,14 @@ def detect_body_collision(old_snake_body, new_snake_body):
 
 def game_over_screen(stdscr, max_x, max_y):
     game_over_message = "GAME OVER"
+    quit_text = "Press Q to quit"
+    retry_text = "Press R to retry"
     stdscr.addstr(
-        max_y // 2, (max_x // 2) - len(game_over_message) // 2, game_over_message
+        (max_y // 2) - 3, (max_x // 2) - len(game_over_message) // 2, game_over_message
     )
+    stdscr.addstr((max_y // 2) - 1, (max_x // 2) - len(quit_text) // 2, quit_text)
+    stdscr.addstr((max_y // 2), (max_x // 2) - len(quit_text) // 2, retry_text)
     stdscr.refresh()
-    time.sleep(2)
 
 
 def main(stdscr):
@@ -100,6 +103,16 @@ def main(stdscr):
         curses.napms(sleep_anim)
 
     game_over_screen(stdscr, max_x, max_y)
+
+    stdscr.nodelay(False)
+
+    while True:
+        key = stdscr.getch()
+
+        if chr(key) == "q":
+            break
+        elif chr(key) == "r":
+            main(stdscr)
 
 
 curses.wrapper(main)
