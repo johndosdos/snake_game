@@ -1,5 +1,4 @@
 import curses
-import time
 import random
 
 
@@ -57,7 +56,8 @@ def main(stdscr):
     snake_body = [(snake_x, snake_y)]
     food_x, food_y = random_food_placement(max_x, max_y)
 
-    frame_rate = 1 / 6
+    # in milliseconds
+    sleep_anim = 100
 
     while True:
         key = stdscr.getch()
@@ -82,7 +82,7 @@ def main(stdscr):
         if snake_x == food_x and snake_y == food_y:
             snake_body = update_snake_body(snake_x, snake_y, snake_body, True)
             food_x, food_y = random_food_placement(max_x, max_y)
-            frame_rate -= frame_rate * 0.01
+            sleep_anim -= 1
         else:
             old_snake_body = snake_body
             snake_body = update_snake_body(snake_x, snake_y, snake_body)
@@ -92,7 +92,7 @@ def main(stdscr):
                 break
 
         prev_key = key
-        time.sleep(frame_rate)
+        curses.napms(sleep_anim)
 
     game_over_screen(stdscr, max_x, max_y)
 
