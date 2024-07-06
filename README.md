@@ -34,9 +34,9 @@ python3 snake_game.py
 
 ### Controls
 Use the arrow keys to control the snake:
-- **UP:** Move up
-- **RIGHT:** Move right
-- **DOWN:** Move down
-- **LEFT:** Move left
+- `UP:` Move up
+- `RIGHT:` Move right
+- `DOWN:` Move down
+- `LEFT:` Move left
 
 Press `Q` to quit the game and `R` to retry after a game over.
