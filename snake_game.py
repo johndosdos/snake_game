@@ -19,13 +19,13 @@ def update_snake_body(x, y, snake_body, is_food_eaten=False):
 
 
 def change_direction(unicode_key, x, y, max_x, max_y):
-    if unicode_key == curses.KEY_UP and y > 0:
+    if unicode_key == curses.KEY_UP and y > 4:
         y -= 1
-    elif unicode_key == curses.KEY_RIGHT and x < max_x - 2:
+    elif unicode_key == curses.KEY_RIGHT and x < max_x - 3:
         x += 2
-    elif unicode_key == curses.KEY_DOWN and y < max_y - 1:
+    elif unicode_key == curses.KEY_DOWN and y < max_y - 2:
         y += 1
-    elif unicode_key == curses.KEY_LEFT and x > 1:
+    elif unicode_key == curses.KEY_LEFT and x > 2:
         x -= 2
 
     # We increment the x value by two to compensate for the char 's' dimensions.
