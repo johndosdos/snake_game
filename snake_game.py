@@ -3,7 +3,7 @@ import random
 
 
 def random_food_placement(max_x, max_y):
-    rnd_x = (random.randint(1, max_x - 2) // 2) * 2
+    rnd_x = (random.randint(2, max_x - 2) // 2) * 2
     rnd_y = random.randint(4, max_y - 2)
 
     return rnd_x, rnd_y
