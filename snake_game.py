@@ -72,7 +72,7 @@ def main(stdscr):
     score_y = 1
 
     # in milliseconds
-    sleep_anim = 100
+    sleep_anim = 130
 
     while True:
         key = stdscr.getch()
