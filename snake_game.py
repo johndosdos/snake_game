@@ -56,6 +56,9 @@ def main(stdscr):
 
     max_y, max_x = stdscr.getmaxyx()
 
+    main_window = stdscr.subwin(max_y - 3, max_x, 3, 0)
+    score_window = stdscr.subwin(3, max_x, 0, 0)
+
     # The snake's x value is always an even integer. The snake skips one position
     # when it moves horizontally since the char 's' is taller than it is wider.
     snake_x = ((max_x // 2) // 2) * 2
@@ -78,6 +81,8 @@ def main(stdscr):
             key = prev_key
 
         stdscr.clear()
+        main_window.border("#", "#")
+        score_window.border("#", "#")
 
         stdscr.addstr(food_y, food_x, "*")
 
