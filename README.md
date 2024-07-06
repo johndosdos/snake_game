@@ -11,12 +11,12 @@ A classic snake game implemented in Python using the `curses` library.
 ## Installation
 Ensure you have Python installed on your system.
 
-- ### Clone the repository
+- #### Clone the repository
 ```bash
 git clone git@github.com:johndosdos/snake_game.git
 ```
 
-- ### Change to the project directory
+- #### Change to the project directory
 ```bash
 cd snake_game
 ```
