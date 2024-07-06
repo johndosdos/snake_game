@@ -67,6 +67,10 @@ def main(stdscr):
     snake_body = [(snake_x, snake_y)]
     food_x, food_y = random_food_placement(max_x, max_y)
 
+    score = 0
+    score_x = max_x // 2
+    score_y = 1
+
     # in milliseconds
     sleep_anim = 100
 
@@ -83,6 +87,7 @@ def main(stdscr):
         stdscr.clear()
         main_window.border("#", "#")
         score_window.border("#", "#")
+        stdscr.addstr(score_y, score_x - (len("SCORE: 0") // 2), f"SCORE: {score}")
 
         stdscr.addstr(food_y, food_x, "*")
 
@@ -96,6 +101,7 @@ def main(stdscr):
         if snake_x == food_x and snake_y == food_y:
             snake_body = update_snake_body(snake_x, snake_y, snake_body, True)
             food_x, food_y = random_food_placement(max_x, max_y)
+            score += 1
             sleep_anim -= 1
         else:
             old_snake_body = snake_body
