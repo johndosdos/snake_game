@@ -120,7 +120,6 @@ def main(stdscr):
 
     while True:
         key = stdscr.getch()
-        curses.flushinp()
 
         if chr(key) == "q":
             break
